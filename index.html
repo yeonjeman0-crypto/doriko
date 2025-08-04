@@ -33,6 +33,7 @@
         body {
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.5;
+            padding-bottom: 120px;
         }
         /* Section spacing: generous vertical space and horizontal padding for better breathing room */
         .section-spacing { padding: 5rem 1.5rem; }
@@ -260,6 +261,7 @@
                     <a href="#esg" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">ESG</a>
                     <a href="#fleet" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">Fleet</a>
                     <a href="#history" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">History</a>
+                    <a href="#upload" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">Upload</a>
                     <a href="#contact" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">Contact</a>
                 </div>
                 <div class="lg:hidden">
@@ -282,6 +284,7 @@
                 <a href="#esg" class="block text-doriko-steel">ESG</a>
                 <a href="#fleet" class="block text-doriko-steel">Fleet</a>
                 <a href="#history" class="block text-doriko-steel">History</a>
+                <a href="#upload" class="block text-doriko-steel">Upload</a>
                 <a href="#contact" class="block text-doriko-steel">Contact</a>
             </div>
         </div>
@@ -299,11 +302,14 @@
                     Managing <span class="counter" data-target="14">0</span> vessels globally with expertise in Bulk Carriers and PCTCs. 
                     Delivering excellence through innovation and reliability since 2000.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                    <a href="#services" class="bg-white text-doriko-navy px-12 py-5 rounded-lg font-semibold text-xl hover:bg-gray-50 transition-all shadow-lg">
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#services" class="bg-white text-doriko-navy px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all shadow-lg">
                         Our Services
                     </a>
-                    <a href="#contact" class="border-2 border-white text-white hover:bg-white hover:text-doriko-navy px-12 py-5 rounded-lg font-semibold text-xl transition-all">
+                    <a href="#upload" class="bg-doriko-gold text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-all shadow-lg">
+                        Upload Documents
+                    </a>
+                    <a href="#contact" class="border-2 border-white text-white hover:bg-white hover:text-doriko-navy px-10 py-4 rounded-lg font-semibold text-lg transition-all">
                         Contact Us
                     </a>
                 </div>
@@ -1436,6 +1442,87 @@
         </div>
     </section>
 
+    <!-- File Upload Section -->
+    <section id="upload" class="section-spacing bg-gradient-to-br from-doriko-light to-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center content-spacing fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold text-doriko-navy mb-6 tracking-tight">Document Management</h2>
+                <p class="text-lg text-doriko-steel max-w-3xl mx-auto">Upload and manage important documents for your vessel operations</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Upload Area -->
+                    <div class="bg-white rounded-xl p-8 card-elevation fade-in border-2 border-dashed border-doriko-ocean/30 hover:border-doriko-ocean/60 transition-all duration-300">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-doriko-ocean/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-8 h-8 text-doriko-ocean" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-doriko-navy mb-4">Upload Documents</h3>
+                            <p class="text-doriko-steel mb-6">Drag and drop files here or click to browse</p>
+                            <input type="file" id="fileUpload" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" class="hidden">
+                            <label for="fileUpload" class="inline-flex items-center px-6 py-3 bg-doriko-ocean text-white font-semibold rounded-lg hover:bg-doriko-navy transition-colors cursor-pointer">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                Choose Files
+                            </label>
+                            <p class="text-sm text-doriko-steel/60 mt-4">Supported formats: PDF, DOC, XLS, JPG, PNG (Max 10MB per file)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Upload Progress -->
+                    <div class="bg-white rounded-xl p-8 card-elevation fade-in">
+                        <h3 class="text-xl font-bold text-doriko-navy mb-6">Upload Progress</h3>
+                        <div id="uploadProgress" class="space-y-4">
+                            <div class="text-center text-doriko-steel/60 py-8">
+                                <svg class="w-12 h-12 mx-auto mb-4 text-doriko-steel/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                <p>No files selected</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Document Categories -->
+                <div class="grid md:grid-cols-3 gap-6 fade-in">
+                    <div class="bg-white rounded-xl p-6 card-elevation text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-doriko-navy mb-2">Certificates</h4>
+                        <p class="text-sm text-doriko-steel">Safety, classification, and compliance certificates</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 card-elevation text-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-doriko-navy mb-2">Reports</h4>
+                        <p class="text-sm text-doriko-steel">Inspection reports, surveys, and technical documentation</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 card-elevation text-center">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-doriko-navy mb-2">Contracts</h4>
+                        <p class="text-sm text-doriko-steel">Management agreements and service contracts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section-spacing bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1508,7 +1595,7 @@
     <!-- A simplified, fixed footer that stays anchored to the bottom of the viewport.  It presents core contact details without
          occupying too much vertical space.  The larger contact information now lives in the Contact section above, so the footer
          only contains a condensed summary and copyright. -->
-    <footer class="bg-doriko-navy text-white py-4 px-6 fixed bottom-0 left-0 right-0 z-40 border-t border-blue-800/50">
+    <footer class="bg-doriko-navy text-white py-3 px-6 fixed bottom-0 left-0 right-0 z-40 border-t border-blue-800/50">
       <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start gap-4">
         <!-- Seoul Office Details -->
         <div class="mb-2 sm:mb-0">
@@ -1644,6 +1731,119 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        // File upload functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('fileUpload');
+            const uploadProgress = document.getElementById('uploadProgress');
+            const dropZone = fileInput.closest('.border-dashed');
+
+            // Handle file selection
+            fileInput.addEventListener('change', function(e) {
+                handleFiles(e.target.files);
+            });
+
+            // Handle drag and drop
+            dropZone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                dropZone.classList.add('border-doriko-ocean', 'bg-doriko-ocean/5');
+            });
+
+            dropZone.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                dropZone.classList.remove('border-doriko-ocean', 'bg-doriko-ocean/5');
+            });
+
+            dropZone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                dropZone.classList.remove('border-doriko-ocean', 'bg-doriko-ocean/5');
+                handleFiles(e.dataTransfer.files);
+            });
+
+            function handleFiles(files) {
+                if (files.length === 0) return;
+
+                uploadProgress.innerHTML = '';
+                
+                Array.from(files).forEach((file, index) => {
+                    const fileItem = createFileItem(file, index);
+                    uploadProgress.appendChild(fileItem);
+                    simulateUpload(fileItem, file);
+                });
+            }
+
+            function createFileItem(file, index) {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'border border-gray-200 rounded-lg p-4';
+                
+                const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                const fileType = getFileType(file.name);
+                
+                fileItem.innerHTML = `
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-doriko-ocean/10 rounded-full flex items-center justify-center mr-3">
+                                ${getFileIcon(fileType)}
+                            </div>
+                            <div>
+                                <p class="font-medium text-doriko-navy text-sm">${file.name}</p>
+                                <p class="text-xs text-doriko-steel">${fileSize} MB • ${fileType}</p>
+                            </div>
+                        </div>
+                        <span class="text-xs text-doriko-steel upload-status">Uploading...</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-doriko-ocean h-2 rounded-full progress-bar" style="width: 0%"></div>
+                    </div>
+                `;
+                
+                return fileItem;
+            }
+
+            function simulateUpload(fileItem, file) {
+                const progressBar = fileItem.querySelector('.progress-bar');
+                const statusText = fileItem.querySelector('.upload-status');
+                let progress = 0;
+                
+                const interval = setInterval(() => {
+                    progress += Math.random() * 15;
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(interval);
+                        statusText.textContent = 'Completed';
+                        statusText.className = 'text-xs text-green-600 upload-status';
+                        progressBar.className = 'bg-green-500 h-2 rounded-full progress-bar';
+                    }
+                    progressBar.style.width = progress + '%';
+                }, 200);
+            }
+
+            function getFileType(fileName) {
+                const extension = fileName.split('.').pop().toLowerCase();
+                const types = {
+                    'pdf': 'PDF Document',
+                    'doc': 'Word Document',
+                    'docx': 'Word Document',
+                    'xls': 'Excel Spreadsheet',
+                    'xlsx': 'Excel Spreadsheet',
+                    'jpg': 'Image',
+                    'jpeg': 'Image',
+                    'png': 'Image'
+                };
+                return types[extension] || 'Document';
+            }
+
+            function getFileIcon(fileType) {
+                const icons = {
+                    'PDF Document': '<svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 18h12V6l-4-4H4v16z"/></svg>',
+                    'Word Document': '<svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 18h12V6l-4-4H4v16z"/></svg>',
+                    'Excel Spreadsheet': '<svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 18h12V6l-4-4H4v16z"/></svg>',
+                    'Image': '<svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/></svg>',
+                    'Document': '<svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 18h12V6l-4-4H4v16z"/></svg>'
+                };
+                return icons[fileType] || icons['Document'];
+            }
+        });
 
         // Move the ship along the timeline based on scroll position
         function updateShipPosition() {
