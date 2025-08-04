@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DORIKO LIMITED - Professional Ship Management Solutions</title>
+    <title>DORIKO LIMITED LIMITED - Professional Ship Management Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'doriko-navy': '#0f172a',
-                        'doriko-steel': '#475569',
-                        'doriko-ocean': '#1e40af',
-                        'doriko-light': '#f1f5f9',
-                        'doriko-gold': '#f59e0b',
-                        'doriko-platinum': '#e2e8f0'
+                        'doriko-navy': '#0a1128',
+                        'doriko-steel': '#374151',
+                        'doriko-ocean': '#0369a1',
+                        'doriko-light': '#f8fafc',
+                        'doriko-gold': '#d97706',
+                        'doriko-platinum': '#e5e7eb',
+                        'doriko-deep': '#1e3a8a',
+                        'doriko-accent': '#0284c7'
                     },
                     fontFamily: {
                         'corporate': ['Inter', 'system-ui', 'sans-serif']
@@ -49,10 +51,16 @@
             transform: translateY(0);
         }
         .hero-gradient {
-            /* Animated gradient for a dynamic, high‑impact hero background */
-            background: linear-gradient(-45deg, #0f172a 0%, #1e40af 25%, #0f172a 50%, #0c3351 75%);
+            /* Professional maritime gradient with sophisticated animation */
+            background: linear-gradient(-45deg, #0a1128 0%, #1e3a8a 25%, #0369a1 50%, #0284c7 75%, #0a1128 100%);
             background-size: 400% 400%;
-            animation: gradientAnimation 20s ease infinite;
+            animation: gradientAnimation 25s ease infinite;
+        }
+        
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         /* Card elevation style with smooth hover effect */
         .card-elevation {
@@ -63,7 +71,30 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
             transform: translateY(-6px);
         }
-        /* Hide ship animation markup so the ship icon is never displayed */
+        /* Ocean wave animations */
+        @keyframes waveMotion {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-5px) translateY(-2px); }
+            50% { transform: translateX(0) translateY(-4px); }
+            75% { transform: translateX(5px) translateY(-2px); }
+        }
+        
+        @keyframes shipFloating {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-3px) rotate(1deg); }
+            50% { transform: translateY(-6px) rotate(0deg); }
+            75% { transform: translateY(-3px) rotate(-1deg); }
+        }
+        
+        .ship-floating {
+            animation: shipFloating 4s ease-in-out infinite;
+        }
+        
+        .wave-animation {
+            animation: waveMotion 3s ease-in-out infinite;
+        }
+        
+        /* Hide the default pseudo-element ship animation */
         .ship-animation-wrapper,
         .ship-svg {
             display: none !important;
@@ -248,7 +279,7 @@
                 <div class="flex items-center">
                     <img src="data:image/png;base64,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" alt="Doriko Limited Logo" class="h-12 w-auto mr-3" />
                     <div>
-                        <h1 class="text-2xl font-bold text-doriko-navy tracking-wide">DORIKO LIMITED</h1>
+                        <h1 class="text-2xl font-bold text-doriko-navy tracking-wide" data-en="DORIKO LIMITED" data-ko="도리코">DORIKO LIMITED</h1>
                         <p class="text-sm text-doriko-steel font-medium">Professional Ship Management</p>
                     </div>
                 </div>
@@ -261,8 +292,17 @@
                     <a href="#esg" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">ESG</a>
                     <a href="#fleet" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">Fleet</a>
                     <a href="#history" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">History</a>
-                    <a href="#upload" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">Upload</a>
+                    <a href="#upload" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300" data-en="Resources" data-ko="자료실">Resources</a>
                     <a href="#contact" class="nav-link px-3 py-2 rounded-full text-doriko-steel hover:text-white hover:bg-doriko-navy transition-all duration-300">Contact</a>
+                </div>
+                <!-- Language Toggle -->
+                <div class="flex items-center space-x-2 ml-4">
+                    <button id="langToggle" class="flex items-center space-x-1 px-3 py-2 rounded-full bg-doriko-ocean/10 hover:bg-doriko-ocean hover:text-white transition-all duration-300 text-doriko-navy font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m9.176 0a17.995 17.995 0 01-3.431 6.5M9 11a17.995 17.995 0 013.431-6.5M9 11l.001 0M3 19h18M9 21v-2"></path>
+                        </svg>
+                        <span id="currentLang">EN</span>
+                    </button>
                 </div>
                 <div class="lg:hidden">
                     <button id="mobile-menu-btn" class="text-doriko-navy">
@@ -284,7 +324,7 @@
                 <a href="#esg" class="block text-doriko-steel">ESG</a>
                 <a href="#fleet" class="block text-doriko-steel">Fleet</a>
                 <a href="#history" class="block text-doriko-steel">History</a>
-                <a href="#upload" class="block text-doriko-steel">Upload</a>
+                <a href="#upload" class="block text-doriko-steel" data-en="Resources" data-ko="자료실">Resources</a>
                 <a href="#contact" class="block text-doriko-steel">Contact</a>
             </div>
         </div>
@@ -306,8 +346,8 @@
                     <a href="#services" class="bg-white text-doriko-navy px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all shadow-lg">
                         Our Services
                     </a>
-                    <a href="#upload" class="bg-doriko-gold text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-all shadow-lg">
-                        Upload Documents
+                    <a href="#upload" class="bg-doriko-gold text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-all shadow-lg" data-en="Company Resources" data-ko="회사 자료실">
+                        Company Resources
                     </a>
                     <a href="#contact" class="border-2 border-white text-white hover:bg-white hover:text-doriko-navy px-10 py-4 rounded-lg font-semibold text-lg transition-all">
                         Contact Us
@@ -1199,7 +1239,7 @@
             <div class="bg-white rounded-xl p-12 mb-16 border-2 border-gray-100 fade-in">
                 <div class="text-center mb-12">
                     <h3 class="text-2xl font-bold text-doriko-navy mb-4">Competitive Advantages</h3>
-                    <p class="text-lg text-doriko-steel max-w-4xl mx-auto">What sets DORIKO apart in the maritime industry</p>
+                    <p class="text-lg text-doriko-steel max-w-4xl mx-auto">What sets DORIKO LIMITED apart in the maritime industry</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1442,81 +1482,127 @@
         </div>
     </section>
 
-    <!-- File Upload Section -->
+    <!-- Board Section -->
     <section id="upload" class="section-spacing bg-gradient-to-br from-doriko-light to-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center content-spacing fade-in">
-                <h2 class="text-3xl lg:text-4xl font-bold text-doriko-navy mb-6 tracking-tight">Document Management</h2>
-                <p class="text-lg text-doriko-steel max-w-3xl mx-auto">Upload and manage important documents for your vessel operations</p>
+                <h2 class="text-3xl lg:text-4xl font-bold text-doriko-navy mb-6 tracking-tight" data-en="Company Resources" data-ko="회사 자료실">Company Resources</h2>
+                <p class="text-lg text-doriko-steel max-w-3xl mx-auto" data-en="Access our company introduction materials and important documents" data-ko="회사 소개 자료 및 중요 문서들을 확인하세요">Access our company introduction materials and important documents</p>
             </div>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8 mb-12">
-                    <!-- Upload Area -->
-                    <div class="bg-white rounded-xl p-8 card-elevation fade-in border-2 border-dashed border-doriko-ocean/30 hover:border-doriko-ocean/60 transition-all duration-300">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-doriko-ocean/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <svg class="w-8 h-8 text-doriko-ocean" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-doriko-navy mb-4">Upload Documents</h3>
-                            <p class="text-doriko-steel mb-6">Drag and drop files here or click to browse</p>
-                            <input type="file" id="fileUpload" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" class="hidden">
-                            <label for="fileUpload" class="inline-flex items-center px-6 py-3 bg-doriko-ocean text-white font-semibold rounded-lg hover:bg-doriko-navy transition-colors cursor-pointer">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                Choose Files
-                            </label>
-                            <p class="text-sm text-doriko-steel/60 mt-4">Supported formats: PDF, DOC, XLS, JPG, PNG (Max 10MB per file)</p>
-                        </div>
+            <!-- Admin Login (Hidden by default) -->
+            <div id="adminPanel" class="hidden mb-8">
+                <div class="bg-white rounded-xl p-6 card-elevation">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-doriko-navy" data-en="Admin Panel" data-ko="관리자 패널">Admin Panel</h3>
+                        <button id="logoutBtn" class="text-red-600 hover:text-red-800 text-sm">Logout</button>
                     </div>
-                    
-                    <!-- Upload Progress -->
-                    <div class="bg-white rounded-xl p-8 card-elevation fade-in">
-                        <h3 class="text-xl font-bold text-doriko-navy mb-6">Upload Progress</h3>
-                        <div id="uploadProgress" class="space-y-4">
-                            <div class="text-center text-doriko-steel/60 py-8">
-                                <svg class="w-12 h-12 mx-auto mb-4 text-doriko-steel/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                <p>No files selected</p>
-                            </div>
-                        </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" id="postTitle" placeholder="Post Title" class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-doriko-ocean focus:border-transparent">
+                        <select id="postCategory" class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-doriko-ocean focus:border-transparent">
+                            <option value="company">Company Introduction</option>
+                            <option value="certificates">Certificates</option>
+                            <option value="reports">Reports</option>
+                        </select>
                     </div>
+                    <textarea id="postContent" placeholder="Post Content" class="w-full mt-4 border border-gray-300 rounded-lg px-4 py-2 h-32 focus:ring-2 focus:ring-doriko-ocean focus:border-transparent"></textarea>
+                    <input type="file" id="postFile" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" class="mt-4">
+                    <button id="publishBtn" class="mt-4 bg-doriko-ocean text-white px-6 py-2 rounded-lg hover:bg-doriko-navy transition-colors">Publish Post</button>
                 </div>
-                
-                <!-- Document Categories -->
-                <div class="grid md:grid-cols-3 gap-6 fade-in">
-                    <div class="bg-white rounded-xl p-6 card-elevation text-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
+            </div>
+
+            <!-- Admin Login Form -->
+            <div id="loginForm" class="mb-8">
+                <div class="bg-white rounded-xl p-6 card-elevation max-w-md mx-auto">
+                    <h3 class="text-lg font-bold text-doriko-navy mb-4 text-center" data-en="Admin Login" data-ko="관리자 로그인">Admin Login</h3>
+                    <input type="password" id="adminPassword" placeholder="Password" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-doriko-ocean focus:border-transparent">
+                    <button id="loginBtn" class="w-full mt-4 bg-doriko-ocean text-white py-2 rounded-lg hover:bg-doriko-navy transition-colors">Login</button>
+                </div>
+            </div>
+
+            <!-- Board Posts -->
+            <div class="max-w-6xl mx-auto">
+                <div id="boardPosts" class="grid gap-6">
+                    <!-- Sample Posts -->
+                    <div class="bg-white rounded-xl p-6 card-elevation fade-in border-l-4 border-doriko-ocean">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Company</span>
+                                    <span class="text-sm text-gray-500">2025-01-15</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-doriko-navy mb-2" data-en="DORIKO Company Profile 2025" data-ko="도리코 회사 소개서 2025">DORIKO Company Profile 2025</h3>
+                                <p class="text-doriko-steel" data-en="Comprehensive company introduction including our services, fleet information, and global operations overview." data-ko="서비스, 선대 정보 및 글로벌 운영 개요를 포함한 종합적인 회사 소개서입니다.">Comprehensive company introduction including our services, fleet information, and global operations overview.</p>
+                            </div>
+                            <button class="admin-delete hidden text-red-600 hover:text-red-800 p-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
                         </div>
-                        <h4 class="font-semibold text-doriko-navy mb-2">Certificates</h4>
-                        <p class="text-sm text-doriko-steel">Safety, classification, and compliance certificates</p>
+                        <div class="flex items-center justify-between">
+                            <button class="inline-flex items-center text-doriko-ocean hover:text-doriko-navy transition-colors">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                <span data-en="Download PDF" data-ko="PDF 다운로드">Download PDF</span>
+                            </button>
+                            <span class="text-sm text-gray-400">2.5 MB</span>
+                        </div>
                     </div>
-                    
-                    <div class="bg-white rounded-xl p-6 card-elevation text-center">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
+
+                    <div class="bg-white rounded-xl p-6 card-elevation fade-in border-l-4 border-green-500">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Certificates</span>
+                                    <span class="text-sm text-gray-500">2024-12-20</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-doriko-navy mb-2" data-en="ISM Certificate & Safety Management" data-ko="ISM 인증서 및 안전 관리">ISM Certificate & Safety Management</h3>
+                                <p class="text-doriko-steel" data-en="Our latest ISM certification documents and comprehensive safety management system overview." data-ko="최신 ISM 인증 문서 및 포괄적인 안전 관리 시스템 개요입니다.">Our latest ISM certification documents and comprehensive safety management system overview.</p>
+                            </div>
+                            <button class="admin-delete hidden text-red-600 hover:text-red-800 p-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
                         </div>
-                        <h4 class="font-semibold text-doriko-navy mb-2">Reports</h4>
-                        <p class="text-sm text-doriko-steel">Inspection reports, surveys, and technical documentation</p>
+                        <div class="flex items-center justify-between">
+                            <button class="inline-flex items-center text-doriko-ocean hover:text-doriko-navy transition-colors">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                <span data-en="Download PDF" data-ko="PDF 다운로드">Download PDF</span>
+                            </button>
+                            <span class="text-sm text-gray-400">1.8 MB</span>
+                        </div>
                     </div>
-                    
-                    <div class="bg-white rounded-xl p-6 card-elevation text-center">
-                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
+
+                    <div class="bg-white rounded-xl p-6 card-elevation fade-in border-l-4 border-yellow-500">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Reports</span>
+                                    <span class="text-sm text-gray-500">2024-11-30</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-doriko-navy mb-2" data-en="Annual Fleet Performance Report 2024" data-ko="2024년 선대 성과 보고서">Annual Fleet Performance Report 2024</h3>
+                                <p class="text-doriko-steel" data-en="Detailed performance analysis of our 14-vessel fleet including operational efficiency and safety records." data-ko="운영 효율성과 안전 기록을 포함한 14척 선대의 상세한 성과 분석서입니다.">Detailed performance analysis of our 14-vessel fleet including operational efficiency and safety records.</p>
+                            </div>
+                            <button class="admin-delete hidden text-red-600 hover:text-red-800 p-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
                         </div>
-                        <h4 class="font-semibold text-doriko-navy mb-2">Contracts</h4>
-                        <p class="text-sm text-doriko-steel">Management agreements and service contracts</p>
+                        <div class="flex items-center justify-between">
+                            <button class="inline-flex items-center text-doriko-ocean hover:text-doriko-navy transition-colors">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                <span data-en="Download PDF" data-ko="PDF 다운로드">Download PDF</span>
+                            </button>
+                            <span class="text-sm text-gray-400">3.2 MB</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1613,7 +1699,7 @@
         </div>
         <!-- Copyright -->
         <div class="sm:ml-auto">
-          <p class="text-xs sm:text-sm text-blue-200">&copy; 2025 DORIKO Co., Ltd. All Rights Reserved.</p>
+          <p class="text-xs sm:text-sm text-blue-200">&copy; 2025 DORIKO LIMITED Co., Ltd. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
@@ -1732,117 +1818,138 @@
             }
         }
 
-        // File upload functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const fileInput = document.getElementById('fileUpload');
-            const uploadProgress = document.getElementById('uploadProgress');
-            const dropZone = fileInput.closest('.border-dashed');
-
-            // Handle file selection
-            fileInput.addEventListener('change', function(e) {
-                handleFiles(e.target.files);
+        // Language switching functionality
+        let currentLanguage = 'en';
+        
+        function switchLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'ko' : 'en';
+            const elements = document.querySelectorAll('[data-en][data-ko]');
+            
+            elements.forEach(element => {
+                element.textContent = element.getAttribute(`data-${currentLanguage}`);
             });
-
-            // Handle drag and drop
-            dropZone.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                dropZone.classList.add('border-doriko-ocean', 'bg-doriko-ocean/5');
-            });
-
-            dropZone.addEventListener('dragleave', function(e) {
-                e.preventDefault();
-                dropZone.classList.remove('border-doriko-ocean', 'bg-doriko-ocean/5');
-            });
-
-            dropZone.addEventListener('drop', function(e) {
-                e.preventDefault();
-                dropZone.classList.remove('border-doriko-ocean', 'bg-doriko-ocean/5');
-                handleFiles(e.dataTransfer.files);
-            });
-
-            function handleFiles(files) {
-                if (files.length === 0) return;
-
-                uploadProgress.innerHTML = '';
-                
-                Array.from(files).forEach((file, index) => {
-                    const fileItem = createFileItem(file, index);
-                    uploadProgress.appendChild(fileItem);
-                    simulateUpload(fileItem, file);
-                });
+            
+            document.getElementById('currentLang').textContent = currentLanguage.toUpperCase();
+            localStorage.setItem('language', currentLanguage);
+        }
+        
+        // Board management functionality
+        let isAdmin = false;
+        const adminPassword = 'doriko2025';
+        
+        function loginAdmin() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === adminPassword) {
+                isAdmin = true;
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('adminPanel').classList.remove('hidden');
+                document.querySelectorAll('.admin-delete').forEach(btn => btn.classList.remove('hidden'));
+                localStorage.setItem('adminLoggedIn', 'true');
+            } else {
+                alert('Invalid password');
             }
-
-            function createFileItem(file, index) {
-                const fileItem = document.createElement('div');
-                fileItem.className = 'border border-gray-200 rounded-lg p-4';
-                
-                const fileSize = (file.size / 1024 / 1024).toFixed(2);
-                const fileType = getFileType(file.name);
-                
-                fileItem.innerHTML = `
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-doriko-ocean/10 rounded-full flex items-center justify-center mr-3">
-                                ${getFileIcon(fileType)}
+        }
+        
+        function logoutAdmin() {
+            isAdmin = false;
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.querySelectorAll('.admin-delete').forEach(btn => btn.classList.add('hidden'));
+            localStorage.removeItem('adminLoggedIn');
+        }
+        
+        function createPost() {
+            const title = document.getElementById('postTitle').value;
+            const category = document.getElementById('postCategory').value;
+            const content = document.getElementById('postContent').value;
+            const file = document.getElementById('postFile').files[0];
+            
+            if (!title || !content) {
+                alert('Please fill in title and content');
+                return;
+            }
+            
+            const categoryColors = {
+                'company': 'border-doriko-ocean bg-blue-100 text-blue-800',
+                'certificates': 'border-green-500 bg-green-100 text-green-800',
+                'reports': 'border-yellow-500 bg-yellow-100 text-yellow-800'
+            };
+            
+            const categoryNames = {
+                'company': 'Company',
+                'certificates': 'Certificates',
+                'reports': 'Reports'
+            };
+            
+            const today = new Date().toISOString().split('T')[0];
+            const fileSize = file ? (file.size / 1024 / 1024).toFixed(1) + ' MB' : 'N/A';
+            
+            const postHTML = `
+                <div class="bg-white rounded-xl p-6 card-elevation fade-in border-l-4 ${categoryColors[category].split(' ')[0]}">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex-1">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <span class="px-3 py-1 rounded-full text-sm font-medium ${categoryColors[category]}">${categoryNames[category]}</span>
+                                <span class="text-sm text-gray-500">${today}</span>
                             </div>
-                            <div>
-                                <p class="font-medium text-doriko-navy text-sm">${file.name}</p>
-                                <p class="text-xs text-doriko-steel">${fileSize} MB • ${fileType}</p>
-                            </div>
+                            <h3 class="text-xl font-bold text-doriko-navy mb-2">${title}</h3>
+                            <p class="text-doriko-steel">${content}</p>
                         </div>
-                        <span class="text-xs text-doriko-steel upload-status">Uploading...</span>
+                        <button class="admin-delete text-red-600 hover:text-red-800 p-2" onclick="this.parentElement.parentElement.parentElement.remove()">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-doriko-ocean h-2 rounded-full progress-bar" style="width: 0%"></div>
+                    <div class="flex items-center justify-between">
+                        <button class="inline-flex items-center text-doriko-ocean hover:text-doriko-navy transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span>Download ${file ? file.name : 'Document'}</span>
+                        </button>
+                        <span class="text-sm text-gray-400">${fileSize}</span>
                     </div>
-                `;
-                
-                return fileItem;
+                </div>
+            `;
+            
+            document.getElementById('boardPosts').insertAdjacentHTML('afterbegin', postHTML);
+            
+            // Clear form
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postContent').value = '';
+            document.getElementById('postFile').value = '';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language toggle
+            document.getElementById('langToggle').addEventListener('click', switchLanguage);
+            
+            // Admin functions
+            document.getElementById('loginBtn').addEventListener('click', loginAdmin);
+            document.getElementById('logoutBtn').addEventListener('click', logoutAdmin);
+            document.getElementById('publishBtn').addEventListener('click', createPost);
+            
+            // Check if admin was previously logged in
+            if (localStorage.getItem('adminLoggedIn') === 'true') {
+                isAdmin = true;
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('adminPanel').classList.remove('hidden');
+                document.querySelectorAll('.admin-delete').forEach(btn => btn.classList.remove('hidden'));
             }
-
-            function simulateUpload(fileItem, file) {
-                const progressBar = fileItem.querySelector('.progress-bar');
-                const statusText = fileItem.querySelector('.upload-status');
-                let progress = 0;
-                
-                const interval = setInterval(() => {
-                    progress += Math.random() * 15;
-                    if (progress >= 100) {
-                        progress = 100;
-                        clearInterval(interval);
-                        statusText.textContent = 'Completed';
-                        statusText.className = 'text-xs text-green-600 upload-status';
-                        progressBar.className = 'bg-green-500 h-2 rounded-full progress-bar';
-                    }
-                    progressBar.style.width = progress + '%';
-                }, 200);
+            
+            // Load saved language
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage && savedLanguage !== currentLanguage) {
+                switchLanguage();
             }
-
-            function getFileType(fileName) {
-                const extension = fileName.split('.').pop().toLowerCase();
-                const types = {
-                    'pdf': 'PDF Document',
-                    'doc': 'Word Document',
-                    'docx': 'Word Document',
-                    'xls': 'Excel Spreadsheet',
-                    'xlsx': 'Excel Spreadsheet',
-                    'jpg': 'Image',
-                    'jpeg': 'Image',
-                    'png': 'Image'
-                };
-                return types[extension] || 'Document';
-            }
-
-            function getFileIcon(fileType) {
-                const icons = {
-                    'PDF Document': '<svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 18h12V6l-4-4H4v16z"/></svg>',
-                    'Word Document': '<svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 18h12V6l-4-4H4v16z"/></svg>',
-                    'Excel Spreadsheet': '<svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 18h12V6l-4-4H4v16z"/></svg>',
-                    'Image': '<svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/></svg>',
-                    'Document': '<svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 18h12V6l-4-4H4v16z"/></svg>'
-                };
-                return icons[fileType] || icons['Document'];
-            }
+            
+            // Admin password enter key
+            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    loginAdmin();
+                }
+            });
         });
 
         // Move the ship along the timeline based on scroll position
